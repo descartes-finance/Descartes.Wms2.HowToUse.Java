@@ -14,7 +14,7 @@ public class Program {
 		try {
 			//ClientSelfRegistration.Execute();
 			
-			var businessLineId = BusinessLine.GetId();
+			//var businessLineId = BusinessLine.GetId();
 			//var investmentCategoryId = InvestmentCategory.GetId();
 			//var userId = AdministrativeClientRegistration.Execute();		
 			//var proposalSelectionResult = ProposalSelection.Execute(businessLineId, investmentCategoryId);
