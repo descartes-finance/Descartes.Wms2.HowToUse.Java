@@ -7,7 +7,11 @@ public class Program {
 	public static void main(String[] args) {
 		
 		var version = getVersion();
-		System.out.println("Java version = " + version);
+		
+		System.out.println("*********************** How to Use *********************** ");
+		System.out.println("WEB APIs: https://wms2-app.descartes.swiss/");
+		System.out.println("Clien Java (version = " + version + ")");
+		System.out.println("********************************************************** ");
 		
 		//ErrorManagement.Execute();
 		
@@ -26,9 +30,7 @@ public class Program {
 		} 
 		catch (Exception e) {
 			e.printStackTrace();
-		} 
-		
-		System.out.println("*********************** END *********************** ");
+		}
 	}
 	
 	private static int getVersion() {
