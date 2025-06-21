@@ -7,7 +7,7 @@ public class Program {
 	public static void main(String[] args) {
 		
 		var version = getVersion();
-		System.out.println("version=" + version);
+		System.out.println("Java version = " + version);
 		
 		//ErrorManagement.Execute();
 		
