@@ -10,7 +10,6 @@ import java.nio.file.Path;
 import java.util.*;
 import java.util.function.Supplier;
 
-// https://stackoverflow.com/questions/46392160/java-9-httpclient-send-a-multipart-form-data-request
 public class MultiPartBodyPublisher {
 	private List<PartsSpecification> partsSpecificationList = new ArrayList<>();
 	private String boundary = UUID.randomUUID().toString();
