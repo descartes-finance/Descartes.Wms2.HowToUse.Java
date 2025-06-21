@@ -16,12 +16,12 @@ public class BusinessLine {
 		var httpClient = HttpClient.newHttpClient();
 		
 		HttpRequest businessLineRequest = HttpRequest.newBuilder()
-				.timeout(Duration.ofMinutes(1))
-				.uri(URI.create(Settings.BASE_WMS_URL + "business-lines/code/VORSORGE"))
-				.header("Accept-Language", "de-DE")
-				.header("Authorization", "Bearer " + Settings.GUEST_TOKEN)
-				.header("Content-Type", "application/json")
-				.build();
+			.timeout(Duration.ofMinutes(1))
+			.uri(URI.create(Settings.BASE_WMS_URL + "business-lines/code/VORSORGE"))
+			.header("Accept-Language", "de-DE")
+			.header("Authorization", "Bearer " + Settings.GUEST_TOKEN)
+			.header("Content-Type", "application/json")
+			.build();
 		
 		var response = httpClient.send(businessLineRequest, BodyHandlers.ofString());
 		BusinessLineOutputModel businessLineOutputModelObj = new Gson().fromJson(response.body().toString(), BusinessLineOutputModel.class);
