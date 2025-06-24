@@ -34,13 +34,13 @@ public class PlanCreation {
 		registrationPayload.append("}");
 		
 		HttpRequest createRequest = HttpRequest.newBuilder()
-				.timeout(Duration.ofMinutes(1))
-				.uri(URI.create(Settings.BASE_WMS_URL + "user-risk-categorizations"))
-				.header("Accept-Language", "de-DE")
-				.header("Authorization", "Bearer " + Settings.ADMIN_TOKEN)
-				.header("Content-Type", "application/json")
-				.POST(HttpRequest.BodyPublishers.ofString(registrationPayload.toString()))
-				.build();
+			.timeout(Duration.ofMinutes(1))
+			.uri(URI.create(Settings.BASE_WMS_URL + "user-risk-categorizations"))
+			.header("Accept-Language", "de-DE")
+			.header("Authorization", "Bearer " + Settings.ADMIN_TOKEN)
+			.header("Content-Type", "application/json")
+			.POST(HttpRequest.BodyPublishers.ofString(registrationPayload.toString()))
+			.build();
 		
 		var response = httpClient.send(createRequest, BodyHandlers.ofString());
 		if (response.statusCode() != 200 && response.statusCode() != 201) {

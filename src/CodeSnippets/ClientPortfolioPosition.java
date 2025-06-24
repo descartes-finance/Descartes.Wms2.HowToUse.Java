@@ -1,4 +1,5 @@
 package CodeSnippets;
+
 import java.lang.reflect.Type;
 import java.net.URI;
 import java.net.http.HttpClient;
