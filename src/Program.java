@@ -10,7 +10,7 @@ public class Program {
 		
 		System.out.println("*********************** How to Use *********************** ");
 		System.out.println("WEB APIs: https://wms2-app.descartes.swiss/");
-		System.out.println("Clien Java (version = " + version + ")");
+		System.out.println("Client Java (version = " + version + ")");
 		System.out.println("********************************************************** ");
 		
 		//ErrorManagement.Execute();
@@ -27,6 +27,8 @@ public class Program {
 			
 			//ClientPortfolioPosition.Execute();
 			//ModifyPlan.Execute();
+			
+			
 		} 
 		catch (Exception e) {
 			e.printStackTrace();
