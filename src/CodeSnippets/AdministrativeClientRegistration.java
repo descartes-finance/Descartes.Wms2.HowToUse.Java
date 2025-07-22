@@ -116,7 +116,7 @@ public class AdministrativeClientRegistration {
 		GenderOutputModel genderObj = new Gson().fromJson(response.body().toString(), GenderOutputModel.class);
 		var genderId = genderObj.Id;
 		
-		// Preparing payload
+		// Preparing pay-load
 		StringBuilder registrationPayload = new StringBuilder("{");
 		registrationPayload.append("'ManagementPersonalDataConsent': '2025-01-01',");
 		registrationPayload.append("'CivilStatusId': " + civilStatusId + ",");

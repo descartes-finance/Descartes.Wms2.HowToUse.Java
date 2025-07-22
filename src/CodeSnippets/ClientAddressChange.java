@@ -18,6 +18,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import Models.*;
+import Models.Errors.ValidationErrorModel;
 import Constants.*;
 
 public class ClientAddressChange {
@@ -37,19 +38,19 @@ public class ClientAddressChange {
 		var newCountryId = countryObj.Id;
 		
 		// Assuming this is our client ID
-		var userId = 226;
+		var userId = 1889; 
 		
 		StringBuilder newAddressPayload = new StringBuilder("{");
 		newAddressPayload.append("'Street': 'Nowhere',");
-		newAddressPayload.append("'StreetNr': '1',");
+		newAddressPayload.append("'StreetNr': '213',");
 		newAddressPayload.append("'City': 'Elsewhere',");
 		newAddressPayload.append("'CountryId': " + newCountryId + ",");
-		newAddressPayload.append("'Zip': '6000',"); 
+		newAddressPayload.append("'Zip': '6000'"); 
 		newAddressPayload.append("}");
 		
 		HttpRequest theRequest = HttpRequest.newBuilder()
 			.timeout(Duration.ofMinutes(1))
-			.uri(URI.create(Settings.BASE_WMS_URL + "update-address/user-id/" + userId))
+			.uri(URI.create(Settings.BASE_WMS_URL + "users/update-address/user-id/" + userId))
 			.header("Accept-Language", "de-DE")
 			.header("Authorization", "Bearer " + Settings.ADMIN_TOKEN) // or CLIENT ACCESS TOKEN
 			.header("Content-Type", "application/json")
@@ -57,5 +58,13 @@ public class ClientAddressChange {
 			.build();
 				
 		response = httpClient.send(theRequest, BodyHandlers.ofString());
+		
+		if (response.statusCode() != 200 && response.statusCode() != 201) {
+			System.out.println(response.body());
+			
+			ValidationErrorModel errorsObj = new Gson().fromJson(response.body().toString(), ValidationErrorModel.class);
+			var howManyErrors = errorsObj.validationErrors.size();
+			System.out.println(howManyErrors);
+		}
 	}
 }

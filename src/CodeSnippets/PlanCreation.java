@@ -48,144 +48,144 @@ public class PlanCreation {
 			throw new Exception("user-risk-categorizations ==> response.statusCode() = " + response.statusCode());
 		}
 		
-		// Saving missing client data
-		HttpRequest languageRequest = HttpRequest.newBuilder()
-				.timeout(Duration.ofMinutes(1))
-				.uri(URI.create(Settings.BASE_WMS_URL + "languages/code/FR"))
-				.header("Accept-Language", "de-DE")
-				.header("Authorization", "Bearer " + Settings.GUEST_TOKEN)
-				.header("Content-Type", "application/json")
-				.build();
+//		// Saving missing client data
+//		HttpRequest languageRequest = HttpRequest.newBuilder()
+//				.timeout(Duration.ofMinutes(1))
+//				.uri(URI.create(Settings.BASE_WMS_URL + "languages/code/FR"))
+//				.header("Accept-Language", "de-DE")
+//				.header("Authorization", "Bearer " + Settings.GUEST_TOKEN)
+//				.header("Content-Type", "application/json")
+//				.build();
+//		
+//		response = httpClient.send(languageRequest, BodyHandlers.ofString());
+//		LanguageOutputModel languageObj = new Gson().fromJson(response.body().toString(), LanguageOutputModel.class);
+//		var languageId = languageObj.Id;		
+//		
+//		HttpRequest nationalityRequest = HttpRequest.newBuilder()
+//				.timeout(Duration.ofMinutes(1))
+//				.uri(URI.create(Settings.BASE_WMS_URL + "nationalities/code/CH"))
+//				.header("Accept-Language", "de-DE")
+//				.header("Authorization", "Bearer " + Settings.GUEST_TOKEN)
+//				.header("Content-Type", "application/json")
+//				.build();
+//		
+//		response = httpClient.send(nationalityRequest, BodyHandlers.ofString());
+//		NationalityOutputModel nationalityObj = new Gson().fromJson(response.body().toString(), NationalityOutputModel.class);
+//		var nationalityId = nationalityObj.Id;
+//					
+//		HttpRequest countryRequest = HttpRequest.newBuilder()
+//				.timeout(Duration.ofMinutes(1))
+//				.uri(URI.create(Settings.BASE_WMS_URL + "countries/code/CH"))
+//				.header("Accept-Language", "de-DE")
+//				.header("Authorization", "Bearer " + Settings.GUEST_TOKEN)
+//				.header("Content-Type", "application/json")
+//				.build();
+//		
+//		response = httpClient.send(countryRequest, BodyHandlers.ofString());
+//		CountryOutputModel countryObj = new Gson().fromJson(response.body().toString(), CountryOutputModel.class);
+//		var countryId = countryObj.Id;
+//		
+//		HttpRequest pensionRequest = HttpRequest.newBuilder()
+//				.timeout(Duration.ofMinutes(1))
+//				.uri(URI.create(Settings.BASE_WMS_URL + "pension-situations/code/PENSION-FUND"))
+//				.header("Accept-Language", "de-DE")
+//				.header("Authorization", "Bearer " + Settings.GUEST_TOKEN)
+//				.header("Content-Type", "application/json")
+//				.build();
+//		
+//		response = httpClient.send(pensionRequest, BodyHandlers.ofString());
+//		PensionSituationOutputModel pensionObj = new Gson().fromJson(response.body().toString(), PensionSituationOutputModel.class);
+//		var pensionId = pensionObj.Id;
+//		
+//		HttpRequest taxLiabilityRequest = HttpRequest.newBuilder()
+//				.timeout(Duration.ofMinutes(1))
+//				.uri(URI.create(Settings.BASE_WMS_URL + "tax-liabilities/code/CH"))
+//				.header("Accept-Language", "de-DE")
+//				.header("Authorization", "Bearer " + Settings.GUEST_TOKEN)
+//				.header("Content-Type", "application/json")
+//				.build();
+//		
+//		response = httpClient.send(taxLiabilityRequest, BodyHandlers.ofString());
+//		TaxLiabilityOutputModel taxLiabilityObj = new Gson().fromJson(response.body().toString(), TaxLiabilityOutputModel.class);
+//		var taxLiabilityId = taxLiabilityObj.Id;	
+//		
+//		HttpRequest civilStatusRequest = HttpRequest.newBuilder()
+//				.timeout(Duration.ofMinutes(1))
+//				.uri(URI.create(Settings.BASE_WMS_URL + "civil-statuses/code/SINGLE"))
+//				.header("Accept-Language", "de-DE")
+//				.header("Authorization", "Bearer " + Settings.GUEST_TOKEN)
+//				.header("Content-Type", "application/json")
+//				.build();
+//		
+//		response = httpClient.send(civilStatusRequest, BodyHandlers.ofString());
+//		CivilStatusOutputModel civilStatusObj = new Gson().fromJson(response.body().toString(), CivilStatusOutputModel.class);
+//		var civilStatusId = civilStatusObj.Id;			
+//		
+//		HttpRequest genderRequest = HttpRequest.newBuilder()
+//				.timeout(Duration.ofMinutes(1))
+//				.uri(URI.create(Settings.BASE_WMS_URL + "genders/code/MALE"))
+//				.header("Accept-Language", "de-DE")
+//				.header("Authorization", "Bearer " + Settings.GUEST_TOKEN)
+//				.header("Content-Type", "application/json")
+//				.build();
+//		
+//		response = httpClient.send(genderRequest, BodyHandlers.ofString());
+//		GenderOutputModel genderObj = new Gson().fromJson(response.body().toString(), GenderOutputModel.class);
+//		var genderId = genderObj.Id;
+//		
+//		StringBuilder updatePayload = new StringBuilder("{");
+//		updatePayload.append("'CivilStatusId': " + civilStatusId + ",");
+//		updatePayload.append("'CivilStatusDate': '1989-01-01',");
+//		updatePayload.append("'GenderId': " + genderId + ",");
+//		updatePayload.append("'LanguageId': " + languageId + ",");
+//		updatePayload.append("'Nationality1Id': " + nationalityId + ",");
+//		updatePayload.append("'DeliverTaxStatement': true,");
+//		updatePayload.append("'TaxLiabilityId': " + taxLiabilityId + ",");
+//		updatePayload.append("'PensionSituationId': " + pensionId);
+//		updatePayload.append("}");
+//		
+//		MultiPartBodyPublisher multipartBody = new MultiPartBodyPublisher()
+//			    .addPart("jsonPayload", updatePayload.toString());
+//		
+//		HttpRequest updateRequest = HttpRequest.newBuilder()
+//				.timeout(Duration.ofMinutes(1))
+//				.uri(URI.create(Settings.BASE_WMS_URL + "users/user-id/" + userId))
+//				.header("Accept-Language", "de-DE")
+//				.header("Authorization", "Bearer " + Settings.ADMIN_TOKEN)
+//				.header("Content-Type", "multipart/form-data; boundary=" + multipartBody.getBoundary())
+//				.PUT(multipartBody.build())
+//				.build();
+//		
+//		response = httpClient.send(updateRequest, BodyHandlers.ofString());
+//		if (response.statusCode() != 200 && response.statusCode() != 201) {
+//			System.out.println(response.body());			
+//			throw new Exception("users/user-id" + userId + " ==> response.statusCode() = " + response.statusCode());
+//		}
+//		
+//		StringBuilder updateAddressPayload = new StringBuilder("{");
+//		updateAddressPayload.append("'Street': 'Nostrasse',");
+//		updateAddressPayload.append("'StreetNr': '12',");
+//		updateAddressPayload.append("'City': 'Zug',");
+//		updateAddressPayload.append("'CountryId':" + countryId + ",");
+//		updateAddressPayload.append("'Zip': '6300',");
+//		updateAddressPayload.append("}");
+//		
+//		HttpRequest updateAddressRequest = HttpRequest.newBuilder()
+//				.timeout(Duration.ofMinutes(1))
+//				.uri(URI.create(Settings.BASE_WMS_URL + "users/update-address/user-id/" + userId))
+//				.header("Accept-Language", "de-DE")
+//				.header("Authorization", "Bearer " + Settings.ADMIN_TOKEN)
+//				.header("Content-Type", "application/json")
+//				.PUT(HttpRequest.BodyPublishers.ofString(updateAddressPayload.toString()))
+//				.build();
+//		
+//		response = httpClient.send(updateAddressRequest, BodyHandlers.ofString());			
+//		if (response.statusCode() != 200 && response.statusCode() != 201) {
+//			System.out.println(response.body());
+//			throw new Exception("users/update-address/user-id/" + userId + " ==> response.statusCode() = " + response.statusCode());
+//		}
 		
-		response = httpClient.send(languageRequest, BodyHandlers.ofString());
-		LanguageOutputModel languageObj = new Gson().fromJson(response.body().toString(), LanguageOutputModel.class);
-		var languageId = languageObj.Id;		
-		
-		HttpRequest nationalityRequest = HttpRequest.newBuilder()
-				.timeout(Duration.ofMinutes(1))
-				.uri(URI.create(Settings.BASE_WMS_URL + "nationalities/code/CH"))
-				.header("Accept-Language", "de-DE")
-				.header("Authorization", "Bearer " + Settings.GUEST_TOKEN)
-				.header("Content-Type", "application/json")
-				.build();
-		
-		response = httpClient.send(nationalityRequest, BodyHandlers.ofString());
-		NationalityOutputModel nationalityObj = new Gson().fromJson(response.body().toString(), NationalityOutputModel.class);
-		var nationalityId = nationalityObj.Id;
-					
-		HttpRequest countryRequest = HttpRequest.newBuilder()
-				.timeout(Duration.ofMinutes(1))
-				.uri(URI.create(Settings.BASE_WMS_URL + "countries/code/CH"))
-				.header("Accept-Language", "de-DE")
-				.header("Authorization", "Bearer " + Settings.GUEST_TOKEN)
-				.header("Content-Type", "application/json")
-				.build();
-		
-		response = httpClient.send(countryRequest, BodyHandlers.ofString());
-		CountryOutputModel countryObj = new Gson().fromJson(response.body().toString(), CountryOutputModel.class);
-		var countryId = countryObj.Id;
-		
-		HttpRequest pensionRequest = HttpRequest.newBuilder()
-				.timeout(Duration.ofMinutes(1))
-				.uri(URI.create(Settings.BASE_WMS_URL + "pension-situations/code/PENSION-FUND"))
-				.header("Accept-Language", "de-DE")
-				.header("Authorization", "Bearer " + Settings.GUEST_TOKEN)
-				.header("Content-Type", "application/json")
-				.build();
-		
-		response = httpClient.send(pensionRequest, BodyHandlers.ofString());
-		PensionSituationOutputModel pensionObj = new Gson().fromJson(response.body().toString(), PensionSituationOutputModel.class);
-		var pensionId = pensionObj.Id;
-		
-		HttpRequest taxLiabilityRequest = HttpRequest.newBuilder()
-				.timeout(Duration.ofMinutes(1))
-				.uri(URI.create(Settings.BASE_WMS_URL + "tax-liabilities/code/CH"))
-				.header("Accept-Language", "de-DE")
-				.header("Authorization", "Bearer " + Settings.GUEST_TOKEN)
-				.header("Content-Type", "application/json")
-				.build();
-		
-		response = httpClient.send(taxLiabilityRequest, BodyHandlers.ofString());
-		TaxLiabilityOutputModel taxLiabilityObj = new Gson().fromJson(response.body().toString(), TaxLiabilityOutputModel.class);
-		var taxLiabilityId = taxLiabilityObj.Id;	
-		
-		HttpRequest civilStatusRequest = HttpRequest.newBuilder()
-				.timeout(Duration.ofMinutes(1))
-				.uri(URI.create(Settings.BASE_WMS_URL + "civil-statuses/code/SINGLE"))
-				.header("Accept-Language", "de-DE")
-				.header("Authorization", "Bearer " + Settings.GUEST_TOKEN)
-				.header("Content-Type", "application/json")
-				.build();
-		
-		response = httpClient.send(civilStatusRequest, BodyHandlers.ofString());
-		CivilStatusOutputModel civilStatusObj = new Gson().fromJson(response.body().toString(), CivilStatusOutputModel.class);
-		var civilStatusId = civilStatusObj.Id;			
-		
-		HttpRequest genderRequest = HttpRequest.newBuilder()
-				.timeout(Duration.ofMinutes(1))
-				.uri(URI.create(Settings.BASE_WMS_URL + "genders/code/MALE"))
-				.header("Accept-Language", "de-DE")
-				.header("Authorization", "Bearer " + Settings.GUEST_TOKEN)
-				.header("Content-Type", "application/json")
-				.build();
-		
-		response = httpClient.send(genderRequest, BodyHandlers.ofString());
-		GenderOutputModel genderObj = new Gson().fromJson(response.body().toString(), GenderOutputModel.class);
-		var genderId = genderObj.Id;
-		
-		StringBuilder updatePayload = new StringBuilder("{");
-		updatePayload.append("'CivilStatusId': " + civilStatusId + ",");
-		updatePayload.append("'CivilStatusDate': '1989-01-01',");
-		updatePayload.append("'GenderId': " + genderId + ",");
-		updatePayload.append("'LanguageId': " + languageId + ",");
-		updatePayload.append("'Nationality1Id': " + nationalityId + ",");
-		updatePayload.append("'DeliverTaxStatement': true,");
-		updatePayload.append("'TaxLiabilityId': " + taxLiabilityId + ",");
-		updatePayload.append("'PensionSituationId': " + pensionId);
-		updatePayload.append("}");
-		
-		MultiPartBodyPublisher multipartBody = new MultiPartBodyPublisher()
-			    .addPart("jsonPayload", updatePayload.toString());
-		
-		HttpRequest updateRequest = HttpRequest.newBuilder()
-				.timeout(Duration.ofMinutes(1))
-				.uri(URI.create(Settings.BASE_WMS_URL + "users/user-id/" + userId))
-				.header("Accept-Language", "de-DE")
-				.header("Authorization", "Bearer " + Settings.ADMIN_TOKEN)
-				.header("Content-Type", "multipart/form-data; boundary=" + multipartBody.getBoundary())
-				.PUT(multipartBody.build())
-				.build();
-		
-		response = httpClient.send(updateRequest, BodyHandlers.ofString());
-		if (response.statusCode() != 200 && response.statusCode() != 201) {
-			System.out.println(response.body());			
-			throw new Exception("users/user-id" + userId + " ==> response.statusCode() = " + response.statusCode());
-		}
-		
-		StringBuilder updateAddressPayload = new StringBuilder("{");
-		updateAddressPayload.append("'Street': 'Nostrasse',");
-		updateAddressPayload.append("'StreetNr': '12',");
-		updateAddressPayload.append("'City': 'Zug',");
-		updateAddressPayload.append("'CountryId':" + countryId + ",");
-		updateAddressPayload.append("'Zip': '6300',");
-		updateAddressPayload.append("}");
-		
-		HttpRequest updateAddressRequest = HttpRequest.newBuilder()
-				.timeout(Duration.ofMinutes(1))
-				.uri(URI.create(Settings.BASE_WMS_URL + "users/update-address/user-id/" + userId))
-				.header("Accept-Language", "de-DE")
-				.header("Authorization", "Bearer " + Settings.ADMIN_TOKEN)
-				.header("Content-Type", "application/json")
-				.PUT(HttpRequest.BodyPublishers.ofString(updateAddressPayload.toString()))
-				.build();
-		
-		response = httpClient.send(updateAddressRequest, BodyHandlers.ofString());			
-		if (response.statusCode() != 200 && response.statusCode() != 201) {
-			System.out.println(response.body());
-			throw new Exception("users/update-address/user-id/" + userId + " ==> response.statusCode() = " + response.statusCode());
-		}
-		
-		// Get client data
+		// Get client's data to fill in the contract PDF.
 		HttpRequest updateclientInfoRequest = HttpRequest.newBuilder()
 				.timeout(Duration.ofMinutes(1))
 				.uri(URI.create(Settings.BASE_WMS_URL + "users/" + userId))
@@ -197,7 +197,7 @@ public class PlanCreation {
 		response = httpClient.send(updateclientInfoRequest, BodyHandlers.ofString());
 		ClientOutputModel clientObj = new Gson().fromJson(response.body().toString(), ClientOutputModel.class);
 		
-		// Collect some (hard coded) clien's fields...
+		// Prepare KEY/VALUE dictionary with client's fields. For simplicity some data are hard-coded. 
 		Map<String, String> placeHolderValues = new HashMap<String, String>();
 		placeHolderValues.put("Name", clientObj.Name);
 		placeHolderValues.put("Surname", clientObj.Surname);
