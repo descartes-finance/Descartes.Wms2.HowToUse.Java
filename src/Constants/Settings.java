@@ -1,14 +1,14 @@
 package Constants;
 
 public class Settings {
-	//public static String BASE_PDF_URL = "https://test.wms2-pdf.neon.descartes-finance.com/api/v1/";
-	//public static String BASE_WMS_URL = "https://test.wms2.neon.descartes-finance.com/api/v1/";
-	//public static String GUEST_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcmltYXJ5Z3JvdXBzaWQiOiJORU9OIiwibmFtZWlkIjoiMTg3MCIsInVuaXF1ZV9uYW1lIjoiMTg3MCIsImdpdmVuX25hbWUiOiIiLCJmYW1pbHlfbmFtZSI6IiIsInJvbGUiOiJHdWVzdCIsImlkdHlwIjoiQXBwT25seSIsIm5iZiI6MTc1Mjk4ODczNywiZXhwIjoxOTczOTEzNTM3LCJpYXQiOjE3NTI5ODg3Mzd9.uL2s7fBrD_AwteLLbGIl5Lj7bDv6XJH9UNduvqKgMM8";
-	//public static String ADMIN_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcmltYXJ5Z3JvdXBzaWQiOiJORU9OIiwibmFtZWlkIjoiMTg2OSIsInVuaXF1ZV9uYW1lIjoiMTg2OSIsImdpdmVuX25hbWUiOiIiLCJmYW1pbHlfbmFtZSI6IiIsInJvbGUiOiJTdXBlckFkbWluIiwiaWR0eXAiOiJBcHBPbmx5IiwibmJmIjoxNzUyOTg4Nzk4LCJleHAiOjE5NzM5MTM1OTgsImlhdCI6MTc1Mjk4ODc5OH0.steUA0pidC50H9ca4J1yseJWng0ZGEfIqhJItLTLAxQ";
+	public static String BASE_PDF_URL = "https://test.wms2-pdf.descartes-finance.com/api/v1/";
+	public static String BASE_WMS_URL = "https://test.wms2.descartes-finance.com/api/v1/";
+	public static String GUEST_TOKEN = "YOUR TOKEN HERE";
+	public static String ADMIN_TOKEN = "YOUR TOKEN HERE";
 	
 	// localhost
-	public static String BASE_PDF_URL = "http://localhost:63736/api/v1/";
-	public static String BASE_WMS_URL = "http://localhost:63736/api/v1/";
-	public static String GUEST_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcmltYXJ5Z3JvdXBzaWQiOiJORU9OIiwibmFtZWlkIjoiMTg3MCIsInVuaXF1ZV9uYW1lIjoiMTg3MCIsImdpdmVuX25hbWUiOiIiLCJmYW1pbHlfbmFtZSI6IiIsInJvbGUiOiJHdWVzdCIsImlkdHlwIjoiQXBwT25seSIsIm5iZiI6MTc1MzA5MDE4OSwiZXhwIjoxOTEwODU2NTg5LCJpYXQiOjE3NTMwOTAxODl9.jzhJK00r8j_tnj4WwG5vMjgQPWdS3AQrAfHWMPD-Ug8";
-	public static String ADMIN_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcmltYXJ5Z3JvdXBzaWQiOiJORU9OIiwibmFtZWlkIjoiMTg2OSIsInVuaXF1ZV9uYW1lIjoiMTg2OSIsImdpdmVuX25hbWUiOiIiLCJmYW1pbHlfbmFtZSI6IiIsInJvbGUiOiJTdXBlckFkbWluIiwiaWR0eXAiOiJBcHBPbmx5IiwibmJmIjoxNzUzMDk0MTgzLCJleHAiOjE4NzkzMjQ1ODMsImlhdCI6MTc1MzA5NDE4M30.H5MYlQ-vlIQc39M0qbJcyd2HuSfJ82zpPvhC3TztMlw";
+	//public static String BASE_PDF_URL = "http://localhost:63736/api/v1/";
+	//public static String BASE_WMS_URL = "http://localhost:63736/api/v1/";
+	//public static String GUEST_TOKEN = "YOUR TOKEN HERE";
+	//public static String ADMIN_TOKEN = "YOUR TOKEN HERE";
 }
